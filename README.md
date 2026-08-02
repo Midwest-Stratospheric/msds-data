@@ -1,6 +1,6 @@
 # MSDS Open Data
 
-Public atmospheric and stratospheric data releases from **Midwest Stratospheric Data Systems** high-altitude balloon flights.
+Public atmospheric and stratospheric data releases from **Midwest Stratospheric Data Systems** high-altitude balloon flights, plus continuous local ground weather observations.
 
 ## Purpose
 
@@ -11,8 +11,16 @@ Rapid public release (<48 hours when possible) of high-quality near-space and mi
 - Environmental monitoring
 - Educational use
 
-## Expected Data Types
+## Data Available
 
+### Ground Weather Data (Casey, IL)
+Daily surface weather observations automatically archived as **Midwest Stratospheric Data Systems Ground Weather Data**.
+
+- Location: Casey, Illinois (home base)
+- See [`ground-weather/`](ground-weather/) for daily JSON files and documentation
+- Source: Open-Meteo (CC BY 4.0)
+
+### High-Altitude Flight Data (coming)
 - Temperature, humidity, and pressure profiles
 - Wind speed/direction profiles
 - GPS tracks and ascent/descent rates
@@ -20,10 +28,15 @@ Rapid public release (<48 hours when possible) of high-quality near-space and mi
 - Telemetry logs (APRS, WSPR, etc.)
 - Flight summary reports
 
-## Repository Structure (planned)
+## Repository Structure
 
 ```
-/flights/
+/ground-weather/
+  README.md
+  /daily/
+    YYYY-MM-DD.json
+
+/flights/   (planned)
   /YYYY-MM-DD_flight-id/
     metadata.json
     profiles/
@@ -40,7 +53,7 @@ Rapid public release (<48 hours when possible) of high-quality near-space and mi
 
 ## License & Attribution
 
-Data is intended for open use with attribution to Midwest Stratospheric Data Systems. Specific licenses will be noted per release.
+Data is intended for open use with attribution to Midwest Stratospheric Data Systems. Ground weather values should also attribute Open-Meteo. Specific licenses will be noted per release.
 
 ---
 
