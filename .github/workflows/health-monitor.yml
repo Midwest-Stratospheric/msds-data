@@ -1,0 +1,276 @@
+name: MSDS Data Health Monitor
+
+on:
+  schedule:
+    - cron: "0 12 * * *"
+    - cron: "0 18 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: msds-data-health
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  actions: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Evaluate ground-weather freshness
+        id: check
+        run: |
+          set -e
+          python3 <<'PY'
+          import json
+          from datetime import datetime, timezone, timedelta
+          from pathlib import Path
+
+          now = datetime.now(timezone.utc)
+          today = now.strftime("%Y-%m-%d")
+          yesterday = (now - timedelta(days=1)).strftime("%Y-%m-%d")
+
+          daily = Path("ground-weather/daily")
+          files = sorted(daily.glob("*.json")) if daily.exists() else []
+
+          def load(p):
+              try:
+                  return json.loads(p.read_text())
+              except Exception:
+                  return False
+
+          today_p = daily / f"{today}.json"
+          yest_p = daily / f"{yesterday}.json"
+
+          doc = None
+          used = None
+          if today_p.exists():
+              doc = load(today_p)
+              used = today
+          elif now.hour < 14 and yest_p.exists():
+              # Accept previous day until mid-afternoon UTC (dual-write lag from UOGW + local workflow)
+              doc = load(yest_p)
+              used = yesterday
+
+          status = "ok"
+          reasons = []
+          if doc is None:
+              status = "missing"
+              reasons.append(f"no ground-weather/daily/{today}.json (and no acceptable yesterday)")
+          elif doc is False:
+              status = "invalid_json"
+              reasons.append("JSON parse failed")
+          else:
+              # Prefer collection timestamps when present
+              ts = None
+              if isinstance(doc, dict):
+                  coll = doc.get("collection") or {}
+                  ts = coll.get("collected_at_utc") or coll.get("date") or doc.get("date") or doc.get("source", {}).get("retrieved_at_utc")
+              age_h = None
+              if ts:
+                  try:
+                      if len(str(ts)) == 10:
+                          t = datetime.fromisoformat(str(ts) + "T12:00:00+00:00")
+                      else:
+                          t = datetime.fromisoformat(str(ts).replace("Z", "+00:00"))
+                      age_h = (now - t).total_seconds() / 3600.0
+                  except Exception:
+                      pass
+              if age_h is not None and age_h > 40:
+                  status = "stale"
+                  reasons.append(f"age {age_h:.1f}h > 40h")
+
+          critical = status in ("missing", "invalid_json", "stale")
+
+          report = {
+              "schema": "msds-data.health_report.v1",
+              "date_utc": today,
+              "generated_at_utc": now.strftime("%Y-%m-%dT%H:%M:%SZ"),
+              "ok": not critical,
+              "critical_fail": critical,
+              "status": status,
+              "reasons": reasons,
+              "checked_file": f"ground-weather/daily/{used}.json" if used else None,
+              "available_dates": [p.stem for p in files[-7:]],
+              "redispatch_workflow": "daily-ground-weather.yml",
+              "alert_pr_branch": "ops/msds-data-health-alert",
+              "curator": "Midwest Stratospheric Data Systems",
+              "note": "UOGW msds-ground-daily also dual-writes into this repo when token is configured.",
+          }
+
+          Path("status").mkdir(exist_ok=True)
+          Path("status/health.json").write_text(json.dumps(report, indent=2) + "\n")
+          Path("/tmp/health_report.json").write_text(json.dumps(report, indent=2))
+
+          lines = [
+              f"# MSDS-Data Health Alert — {today}",
+              "",
+              f"Generated: `{report['generated_at_utc']}`",
+              f"Critical failure: **{critical}**",
+              f"Status: `{status}`",
+              "",
+              "## Reasons",
+          ]
+          if reasons:
+              lines += [f"- {r}" for r in reasons]
+          else:
+              lines.append("_none_")
+          lines += [
+              "",
+              "## Recent files",
+              ", ".join(report["available_dates"]) or "_none_",
+              "",
+              "## Recovery",
+              "",
+              "This PR is opened automatically when daily ground-weather JSON is missing or stale.",
+              "It is **closed automatically** when Health Monitor reports recovery.",
+              "",
+              "1. Re-run **Daily Ground Weather (Casey IL)**",
+              "2. Or ensure UOGW `msds-ground-daily` dual-write token is valid",
+              "3. Re-run **MSDS Data Health Monitor**",
+              "",
+          ]
+          Path("/tmp/HEALTH_ALERT.md").write_text("\n".join(lines) + "\n")
+
+          print(json.dumps(report, indent=2))
+          open("/tmp/critical", "w").write("true" if critical else "false")
+          PY
+          if [ "$(cat /tmp/critical)" = "true" ]; then
+            echo "critical=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "critical=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit health status on main
+        run: |
+          set -e
+          git config user.name "MSDS Data Bot"
+          git config user.email "launchcontrol@midwestsds.com"
+          git add status/health.json || true
+          if git diff --staged --quiet; then
+            echo "No health status change"
+            exit 0
+          fi
+          git commit -m "ops(health): msds-data health report $(date -u +%Y-%m-%dT%H:%MZ)"
+          for i in 1 2 3 4 5; do
+            git fetch origin main
+            git rebase origin/main || { git rebase --abort || true; git pull --rebase origin main || true; }
+            if git push origin HEAD:main; then exit 0; fi
+            sleep $((i * 3))
+          done
+          exit 1
+
+      - name: Re-dispatch Daily Ground Weather if unhealthy
+        if: steps.check.outputs.critical == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          echo "Dispatching daily-ground-weather.yml"
+          curl -sS -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/workflows/daily-ground-weather.yml/dispatches" \
+            -d '{"ref":"main"}' || echo "dispatch failed"
+
+      - name: Open or update health alert PR
+        if: steps.check.outputs.critical == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          git config user.name "MSDS Data Bot"
+          git config user.email "launchcontrol@midwestsds.com"
+          BRANCH="ops/msds-data-health-alert"
+          git fetch origin main
+          git checkout -B "$BRANCH" origin/main
+
+          mkdir -p ops
+          cp /tmp/HEALTH_ALERT.md ops/HEALTH_ALERT.md
+          cp /tmp/health_report.json ops/health-report.json
+
+          git add ops/HEALTH_ALERT.md ops/health-report.json
+          if ! git diff --staged --quiet; then
+            git commit -m "ops(health-alert): log critical msds-data health failure $(date -u +%Y-%m-%dT%H:%MZ)"
+          fi
+          git push -u origin "$BRANCH" --force
+
+          PR_JSON=$(curl -sS -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${{ github.repository }}/pulls?state=open&head=${{ github.repository_owner }}:${BRANCH}")
+
+          PR_NUMBER=$(python3 -c "import json,sys; d=json.load(sys.stdin); print(d[0]['number'] if d else '')" <<< "$PR_JSON")
+          BODY=$(cat /tmp/HEALTH_ALERT.md)
+
+          if [ -n "$PR_NUMBER" ]; then
+            echo "Updating PR #$PR_NUMBER"
+            curl -sS -X POST \
+              -H "Accept: application/vnd.github+json" \
+              -H "Authorization: Bearer $GH_TOKEN" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              "https://api.github.com/repos/${{ github.repository }}/issues/${PR_NUMBER}/comments" \
+              -d "$(python3 -c "import json,sys; print(json.dumps({'body': sys.stdin.read()}))" <<< "$BODY")"
+          else
+            echo "Creating health alert PR"
+            curl -sS -X POST \
+              -H "Accept: application/vnd.github+json" \
+              -H "Authorization: Bearer $GH_TOKEN" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              "https://api.github.com/repos/${{ github.repository }}/pulls" \
+              -d "$(python3 <<'PY'
+          import json
+          body = open('/tmp/HEALTH_ALERT.md').read()
+          print(json.dumps({
+            'title': 'msds-data health alert — daily ground weather missing or stale',
+            'head': 'ops/msds-data-health-alert',
+            'base': 'main',
+            'body': body + '\n\n---\n_Automated alert PR. Closed automatically when daily ground-weather data is healthy again._',
+            'maintainer_can_modify': True,
+          }))
+          PY
+          )"
+          fi
+
+      - name: Clear health alert PR when recovered
+        if: steps.check.outputs.critical != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          BRANCH="ops/msds-data-health-alert"
+          PR_JSON=$(curl -sS -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${{ github.repository }}/pulls?state=open&head=${{ github.repository_owner }}:${BRANCH}")
+
+          PR_NUMBER=$(python3 -c "import json,sys; d=json.load(sys.stdin); print(d[0]['number'] if d else '')" <<< "$PR_JSON")
+          if [ -z "$PR_NUMBER" ]; then
+            echo "No open health alert PR"
+            exit 0
+          fi
+
+          MSG="## Recovered\n\nMSDS Data Health Monitor reports **no critical failures** at $(date -u +%Y-%m-%dT%H:%MZ).\n\nClosing this alert PR automatically. See \`status/health.json\` on main."
+          curl -sS -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${{ github.repository }}/issues/${PR_NUMBER}/comments" \
+            -d "$(python3 -c "import json,sys; print(json.dumps({'body': sys.stdin.read()}))" <<< "$MSG")"
+
+          curl -sS -X PATCH \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${{ github.repository }}/pulls/${PR_NUMBER}" \
+            -d '{"state":"closed"}'
+
+          echo "Closed health alert PR #$PR_NUMBER"
