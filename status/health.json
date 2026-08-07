@@ -1,7 +1,7 @@
 {
   "schema": "msds-data.health_report.v1",
   "date_utc": "2026-08-07",
-  "generated_at_utc": "2026-08-07T15:12:26Z",
+  "generated_at_utc": "2026-08-07T20:05:24Z",
   "ok": true,
   "critical_fail": false,
   "status": "ok",
