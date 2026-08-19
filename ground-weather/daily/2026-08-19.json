@@ -1,0 +1,57 @@
+{
+  "dataset": "Midwest Stratospheric Data Systems Ground Weather Data",
+  "location": {
+    "name": "Casey, Illinois",
+    "latitude": 39.2992,
+    "longitude": -87.9925,
+    "elevation_m": 200,
+    "timezone": "America/Chicago"
+  },
+  "source": {
+    "provider": "Open-Meteo",
+    "url": "https://open-meteo.com/",
+    "license": "CC BY 4.0",
+    "attribution": "Weather data by Open-Meteo.com"
+  },
+  "collection": {
+    "date": "2026-08-19",
+    "collected_at_local": "2026-08-19T09:07",
+    "collected_at_utc": "2026-08-19T14:07:09Z",
+    "notes": "Automated daily ground-level observation for MSDS flight context and open data archive."
+  },
+  "current": {
+    "time": "2026-08-19T09:00",
+    "temperature_2m_f": 73.5,
+    "relative_humidity_2m_pct": 87,
+    "apparent_temperature_f": 78.6,
+    "precipitation_in": 0.0,
+    "weather_code": 3,
+    "weather_description": "Overcast",
+    "pressure_msl_hpa": 1014.6,
+    "surface_pressure_hpa": 991.5,
+    "wind_speed_10m_mph": 6.0,
+    "wind_direction_10m_deg": 326,
+    "wind_gusts_10m_mph": 14.3
+  },
+  "daily": {
+    "date": "2026-08-19",
+    "temperature_2m_max_f": 82.5,
+    "temperature_2m_min_f": 67.3,
+    "apparent_temperature_max_f": 90.9,
+    "apparent_temperature_min_f": 71.3,
+    "precipitation_sum_in": 0.059,
+    "rain_sum_in": 0.059,
+    "snowfall_sum_in": 0.0,
+    "precipitation_hours": 3.0,
+    "wind_speed_10m_max_mph": 9.8,
+    "wind_gusts_10m_max_mph": 16.8,
+    "wind_direction_10m_dominant_deg": 225
+  },
+  "units": {
+    "temperature": "°F",
+    "precipitation": "inch",
+    "wind_speed": "mph",
+    "pressure": "hPa",
+    "humidity": "%"
+  }
+}
