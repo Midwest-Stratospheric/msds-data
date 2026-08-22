@@ -1,0 +1,25 @@
+{
+  "schema": "msds-data.health_report.v1",
+  "date_utc": "2026-08-22",
+  "generated_at_utc": "2026-08-22T19:03:21Z",
+  "ok": false,
+  "critical_fail": true,
+  "status": "missing",
+  "reasons": [
+    "no ground-weather/daily/2026-08-22.json (and no acceptable yesterday)"
+  ],
+  "checked_file": null,
+  "available_dates": [
+    "2026-08-15",
+    "2026-08-16",
+    "2026-08-17",
+    "2026-08-18",
+    "2026-08-19",
+    "2026-08-20",
+    "2026-08-21"
+  ],
+  "redispatch_workflow": "daily-ground-weather.yml",
+  "alert_pr_branch": "ops/msds-data-health-alert",
+  "curator": "Midwest Stratospheric Data Systems",
+  "note": "UOGW msds-ground-daily also dual-writes into this repo when token is configured."
+}
