@@ -1,12 +1,14 @@
 {
   "schema": "msds-data.health_report.v1",
   "date_utc": "2026-08-23",
-  "generated_at_utc": "2026-08-23T13:46:00Z",
-  "ok": true,
-  "critical_fail": false,
-  "status": "ok",
-  "reasons": [],
-  "checked_file": "ground-weather/daily/2026-08-22.json",
+  "generated_at_utc": "2026-08-23T19:02:21Z",
+  "ok": false,
+  "critical_fail": true,
+  "status": "missing",
+  "reasons": [
+    "no ground-weather/daily/2026-08-23.json (and no acceptable yesterday)"
+  ],
+  "checked_file": null,
   "available_dates": [
     "2026-08-16",
     "2026-08-17",
