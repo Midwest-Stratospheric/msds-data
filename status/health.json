@@ -1,22 +1,22 @@
 {
   "schema": "msds-data.health_report.v1",
-  "date_utc": "2026-08-26",
-  "generated_at_utc": "2026-08-26T14:27:12Z",
+  "date_utc": "2026-08-28",
+  "generated_at_utc": "2026-08-28T01:37:37Z",
   "ok": false,
   "critical_fail": true,
   "status": "missing",
   "reasons": [
-    "no ground-weather/daily/2026-08-26.json (and no acceptable yesterday)"
+    "no ground-weather/daily/2026-08-28.json (and no acceptable yesterday)"
   ],
   "checked_file": null,
   "available_dates": [
-    "2026-08-19",
     "2026-08-20",
     "2026-08-21",
     "2026-08-22",
     "2026-08-23",
     "2026-08-24",
-    "2026-08-25"
+    "2026-08-25",
+    "2026-08-26"
   ],
   "redispatch_workflow": "daily-ground-weather.yml",
   "alert_pr_branch": "ops/msds-data-health-alert",
