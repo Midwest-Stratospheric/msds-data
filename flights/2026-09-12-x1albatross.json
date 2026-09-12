@@ -1,8 +1,7 @@
 {
   "dataset": "Aerostratospheric flight product",
   "layer": "flight",
-  "status": "factual",
-  "quality": "final",
+  "status": "published",
   "license": "CC BY 4.0",
   "attribution": "Aerostratospheric / Midwest Stratospheric Data Systems",
   "id": "2026-09-12-x1albatross",
@@ -58,6 +57,6 @@
     "precip_mm": 0.02,
     "source": "NWS / Casey station"
   },
-  "notes": "Factual UOGW flight-layer product. Trajectory and envelope check with a simulated x1Albatross payload.",
-  "published_at": "2026-09-12T20:26:00Z"
+  "notes": "x1Albatross envelope check. Launch 1700Z, burst 59000 ft at 1754Z, landing 1840Z Vigo County IN.",
+  "published_at": "2026-09-12T20:29:00Z"
 }
