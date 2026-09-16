@@ -11,13 +11,14 @@
     "provider": "Open-Meteo",
     "url": "https://open-meteo.com/",
     "license": "CC BY 4.0",
-    "attribution": "Weather data by Open-Meteo.com"
+    "attribution": "Weather data by Open-Meteo.com",
+    "radiation_layer": "UOGW Casey GMC-800"
   },
   "collection": {
     "date": "2026-09-16",
     "collected_at_local": "2026-09-16T11:27",
     "collected_at_utc": "2026-09-16T16:27:43Z",
-    "notes": "Automated daily ground-level observation for MSDS flight context and open data archive."
+    "notes": "Automated daily ground-level observation for MSDS flight context and open data archive. Includes co-located GMC-800 radiation from UOGW latest.json."
   },
   "current": {
     "time": "2026-09-16T11:15",
@@ -47,11 +48,38 @@
     "wind_gusts_10m_max_mph": 17.4,
     "wind_direction_10m_dominant_deg": 232
   },
+  "radiation": {
+    "available": true,
+    "layer": "UOGW",
+    "credit": "Unified Open Global Weather (UOGW)",
+    "xdatahub": "https://www.midwestsds.com/msds-data-hub.html",
+    "source_url": "https://raw.githubusercontent.com/Midwest-Stratospheric/Unified-Open-Global-Weather/main/layers/ground/casey/gmc-800/latest.json",
+    "station_id": "MSDS-GMC800-CASEY",
+    "instrument": "GQ Electronics GMC-800",
+    "kind": "fixed_ground_station",
+    "native_interval": "1min",
+    "product_interval": "hourly",
+    "window_start_local": "2026-09-15T12:40:00",
+    "window_end_local": "2026-09-16T09:40:00",
+    "observation_count": 1233,
+    "cpm": {"mean": 15.1249, "min": 5.0, "max": 34.0, "median": 15.0, "n": 1233},
+    "usv_h": {"mean": 0.0982, "min": 0.032, "max": 0.221, "median": 0.097, "n": 1233},
+    "latest_hour": {
+      "time_local": "2026-09-16T09:00:00",
+      "timezone": "America/Chicago",
+      "cpm": {"mean": 15.2105, "min": 10.0, "max": 25.0, "median": 15.0, "n": 38},
+      "usv_h": {"mean": 0.0989, "min": 0.065, "max": 0.162, "median": 0.097, "n": 38},
+      "sample_count": 38
+    },
+    "note": "Co-located Casey ionizing radiation. Research series, not a health-physics product."
+  },
   "units": {
-    "temperature": "°F",
+    "temperature": "\u00b0F",
     "precipitation": "inch",
     "wind_speed": "mph",
     "pressure": "hPa",
-    "humidity": "%"
+    "humidity": "%",
+    "cpm": "counts per minute",
+    "usv_h": "\u00b5Sv/h"
   }
 }
