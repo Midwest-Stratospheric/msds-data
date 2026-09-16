@@ -15,37 +15,37 @@
   },
   "collection": {
     "date": "2026-09-15",
-    "collected_at_local": "2026-09-15T11:35",
-    "collected_at_utc": "2026-09-15T16:35:02Z",
+    "collected_at_local": "2026-09-15T23:24",
+    "collected_at_utc": "2026-09-16T04:24:40Z",
     "notes": "Automated daily ground-level observation for MSDS flight context and open data archive."
   },
   "current": {
-    "time": "2026-09-15T11:30",
-    "temperature_2m_f": 89.6,
-    "relative_humidity_2m_pct": 44,
-    "apparent_temperature_f": 90.5,
+    "time": "2026-09-15T23:15",
+    "temperature_2m_f": 78.2,
+    "relative_humidity_2m_pct": 78,
+    "apparent_temperature_f": 85.7,
     "precipitation_in": 0.0,
     "weather_code": 0,
     "weather_description": "Clear sky",
-    "pressure_msl_hpa": 1018.3,
-    "surface_pressure_hpa": 995.8,
-    "wind_speed_10m_mph": 14.3,
-    "wind_direction_10m_deg": 211,
-    "wind_gusts_10m_mph": 20.8
+    "pressure_msl_hpa": 1018.7,
+    "surface_pressure_hpa": 995.7,
+    "wind_speed_10m_mph": 2.3,
+    "wind_direction_10m_deg": 73,
+    "wind_gusts_10m_mph": 4.9
   },
   "daily": {
     "date": "2026-09-15",
-    "temperature_2m_max_f": 96.4,
+    "temperature_2m_max_f": 97.8,
     "temperature_2m_min_f": 64.6,
-    "apparent_temperature_max_f": 95.7,
+    "apparent_temperature_max_f": 101.2,
     "apparent_temperature_min_f": 65.3,
     "precipitation_sum_in": 0.0,
     "rain_sum_in": 0.0,
     "snowfall_sum_in": 0.0,
     "precipitation_hours": 0.0,
-    "wind_speed_10m_max_mph": 14.4,
+    "wind_speed_10m_max_mph": 13.5,
     "wind_gusts_10m_max_mph": 25.7,
-    "wind_direction_10m_dominant_deg": 184
+    "wind_direction_10m_dominant_deg": 177
   },
   "units": {
     "temperature": "°F",
