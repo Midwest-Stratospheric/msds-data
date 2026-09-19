@@ -1,0 +1,65 @@
+{
+  "dataset": "Aerostratospheric flight product",
+  "layer": "flight",
+  "status": "published",
+  "license": "CC BY 4.0",
+  "attribution": "Aerostratospheric / Midwest Stratospheric Data Systems",
+  "id": "2026-09-19-x2griffon",
+  "title": "X2Griffon maiden",
+  "platform": "X2Griffon",
+  "callsign": "KE9CFY",
+  "vehicle": "X2GriffonT",
+  "date": "2026-09-19",
+  "notam": {
+    "id": "STL 09/348",
+    "location": "1H8",
+    "text": "!STL 09/348 1H8 AIRSPACE UNMANNED FREE BALLOON 391854N0875811W (1.7NM NE 1H8) SFC-UNL ENEB TO 115000FT 2609191800-2609192100",
+    "window_utc": ["2026-09-19T18:00:00Z", "2026-09-19T21:00:00Z"]
+  },
+  "times_utc": {
+    "launch": "2026-09-19T18:17:00Z",
+    "burst": "2026-09-19T19:48:00Z",
+    "landing": "2026-09-19T20:54:00Z",
+    "duration_min": 157
+  },
+  "times_cdt": { "launch": "13:17", "burst": "14:48", "landing": "15:54" },
+  "launch": { "name": "Casey, Illinois", "site": "1H8", "latitude": 39.2992, "longitude": -87.9925 },
+  "landing": {
+    "name": "S 5th Pl woods, Vigo County, Indiana",
+    "address": "14698-13864 S 5th Pl, Terre Haute, IN 47802",
+    "latitude": 39.29478,
+    "longitude": -87.42914,
+    "range_mi": 29.575,
+    "range_nmi": 25.7,
+    "range_km": 47.596,
+    "bearing_deg": 93,
+    "status": "LANDED",
+    "reporter": "xFall2"
+  },
+  "profile": {
+    "ascent_min": 91,
+    "descent_min": 66,
+    "burst_ft": 90356,
+    "ascent_ft_s": 16.4,
+    "descent_ft_s": 11.9,
+    "isa_burst_c": -49.0,
+    "isa_burst_hpa": 17.01
+  },
+  "surface_observation": {
+    "pad_temp_f": 88,
+    "rh_pct": 52,
+    "wind": "SSW 8 kt",
+    "gust_kt": 10,
+    "uv": 3,
+    "kmto_1853z": "17004KT 31/21 A2996"
+  },
+  "batteries": {
+    "outcome": "cold-weather dropout on multiple X2Griffon battery systems",
+    "xfall2": "survived and reported landing",
+    "cutoff_cdt": "13:53",
+    "cutoff_ft": 36124
+  },
+  "notes": "X2Griffon maiden. Cold weather failed multiple battery systems. xFall2 survived and reported landing in the S 5th Pl woods, Vigo County, IN.",
+  "source": "X2Griffon_Sep19_Landing_Brief",
+  "published_at": "2026-09-19T21:50:00Z"
+}
