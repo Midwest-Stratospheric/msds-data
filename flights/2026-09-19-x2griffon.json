@@ -9,6 +9,8 @@
   "platform": "X2Griffon",
   "callsign": "KE9CFY",
   "vehicle": "X2GriffonT",
+  "u4b_channel": 28,
+  "firmware": "WSPR-2 WD_3.4.3-2",
   "date": "2026-09-19",
   "notam": {
     "id": "STL 09/348",
@@ -34,7 +36,18 @@
     "range_km": 47.596,
     "bearing_deg": 93,
     "status": "LANDED",
-    "reporter": "xFall2"
+    "radio": "NO SIGNAL",
+    "reporter": "xFall2",
+    "desk": "xLiveFlights v0.10.50"
+  },
+  "xpredict": {
+    "burst_ft": 90356,
+    "ascent_ft_s": 16.4,
+    "descent_sl_ft_s": 11.9,
+    "gfs_duration": "2 h 31 min",
+    "climatology_duration": "2 h 32 min",
+    "climatology_pin": { "latitude": 39.29478, "longitude": -87.42914, "offset": "29 mi E", "scatter_mi": 4.2 },
+    "gfs_pin_do_not_use": { "latitude": 39.50680, "longitude": -87.50612, "offset": "28 mi ENE", "scatter_mi": 3.9, "note": "15.21 mi north of woods pin" }
   },
   "profile": {
     "ascent_min": 91,
@@ -43,8 +56,42 @@
     "ascent_ft_s": 16.4,
     "descent_ft_s": 11.9,
     "isa_burst_c": -49.0,
+    "isa_burst_f": -56.2,
     "isa_burst_hpa": 17.01,
-    "isa_burst_inhg": 0.50
+    "isa_burst_inhg": 0.50,
+    "column_mean_wind_kt": 9.82,
+    "column_mean_wind_from_deg": 273
+  },
+  "early_packet": {
+    "source": "xLiveFlights takeoff card",
+    "speed_kt": 17,
+    "heading_deg": 348,
+    "altitude_ft": 709,
+    "range_nmi": 1.3,
+    "bearing_deg": 56,
+    "pack_v": 0.0
+  },
+  "u4b": {
+    "source": "qrp-labs.com X2GriffonT capture 16:43 local",
+    "flight": "X2GriffonT",
+    "callsign": "KE9CFY",
+    "channel": 28,
+    "page_note": "Test components for future launch of the x2Griffon hab testing on 2m",
+    "ut": null,
+    "loc": null,
+    "duration": null,
+    "distance": null,
+    "alt_m": 0,
+    "alt_ft": 0,
+    "speed_field_printed": "0 knots / 48 kph",
+    "batt_v": 0.00,
+    "temp_c": 8,
+    "gps_sats": 9,
+    "wspr_frequency_field": 1719170095,
+    "reports_field": 779183474,
+    "telen_1": "2026 32635",
+    "telen_2": "-1414463488 1819112552",
+    "teles_2": "7798"
   },
   "surface_observation": {
     "station": "KMTO",
@@ -63,25 +110,85 @@
     "wind_kt": 4,
     "gust_kt": 10,
     "visibility_sm": 10,
-    "sky": "FEW080",
+    "sky": "FEW070 SCT090 SCT110",
     "uv": 3,
     "pressure_inhg": 29.96,
     "pressure_mb": 1014.6,
     "altimeter": "A2996",
-    "metar": "KMTO 191853Z 17004KT 31/21 A2996",
-    "pre_lift_metar": "KMTO 191753Z VRB03KT 10SM FEW080 30/21 A2998 LTG DSNT NW-NE",
-    "khuf_1853z": "KHUF 191853Z 36005KT 29/22 A2998",
-    "khuf_1953z": "KHUF 191953Z 06006KT 29/22 A2996",
-    "krsv_1815z": "KRSV 191815Z 01012KT 10SM CLR 33/23 A2995",
+    "metar": "KMTO 191853Z AUTO 17004KT 10SM FEW070 SCT090 SCT110 31/21 A2996 RMK AO2 LTG DSNT NE SLP138 T03060211",
+    "pre_lift_metar": "KMTO 191753Z AUTO VRB03KT 10SM FEW080 30/21 A2998 RMK AO2 LTG DSNT NW-NE SLP147 T03000206",
+    "khuf_1853z": "KHUF 191853Z 36005KT 10SM SCT090 29/22 A2998",
+    "khuf_1953z": "KHUF 191953Z 06006KT 10SM FEW090 29/21 A2996",
+    "krsv_1815z": "KRSV 191815Z AUTO 01012KT 10SM CLR 33/23 A2995",
     "notes": "Distant lightning NW-NE, not on pad."
   },
+  "fb_winds": {
+    "stl_valid": "191800Z",
+    "stl_use": "1400-2100Z",
+    "stl_raw": "2712 2612+18 2316+11 2314+07 2819-08 2922-19 341135 990042 220952",
+    "freezing_level_ft": 14800,
+    "peak_wind": { "ft": 24000, "from_deg": 290, "kt": 22 },
+    "max_shear_kt_per_kft": 2.86,
+    "max_shear_layer": "24000-30000",
+    "levels": [
+      { "ft": 3000, "from_deg": 270, "kt": 12, "temp_c": null },
+      { "ft": 6000, "from_deg": 260, "kt": 12, "temp_c": 18, "shear_kt_per_kft": 0.70 },
+      { "ft": 9000, "from_deg": 230, "kt": 16, "temp_c": 11, "shear_kt_per_kft": 2.74 },
+      { "ft": 12000, "from_deg": 230, "kt": 14, "temp_c": 7, "shear_kt_per_kft": 0.67 },
+      { "ft": 18000, "from_deg": 280, "kt": 19, "temp_c": -8, "shear_kt_per_kft": 2.44 },
+      { "ft": 24000, "from_deg": 290, "kt": 22, "temp_c": -19, "shear_kt_per_kft": 0.78 },
+      { "ft": 30000, "from_deg": 340, "kt": 11, "temp_c": -35, "shear_kt_per_kft": 2.86 },
+      { "ft": 34000, "from_deg": null, "kt": 0, "temp_c": -42, "light_and_variable": true, "shear_kt_per_kft": 2.75 },
+      { "ft": 39000, "from_deg": 220, "kt": 9, "temp_c": -52, "shear_kt_per_kft": 1.80 }
+    ],
+    "ind_valid": "200000Z",
+    "ind_levels_from_kt_temp_c": {
+      "3000": "230/5",
+      "6000": "280/16 +18",
+      "9000": "280/22 +11",
+      "12000": "290/28 +6",
+      "18000": "290/24 -7",
+      "24000": "280/14 -19",
+      "30000": "210/29 -32",
+      "34000": "210/24 -42",
+      "39000": "200/29 -54"
+    }
+  },
+  "isa_above_fb": [
+    { "ft": 50000, "temp_c": -56.5, "p_hpa": 116.0 },
+    { "ft": 65000, "temp_c": -56.5, "p_hpa": 56.4 },
+    { "ft": 80000, "temp_c": -52.1, "p_hpa": 27.6 },
+    { "ft": 90356, "temp_c": -49.0, "p_hpa": 17.01 }
+  ],
   "batteries": {
     "outcome": "cold-weather dropout on multiple X2Griffon battery systems",
     "xfall2": "survived and reported landing",
+    "recorded_v": 0.00,
+    "u4b_temp_c_at_capture": 8,
     "cutoff_cdt": "13:53",
-    "cutoff_ft": 36124
+    "cutoff_ft": 36124,
+    "sample_note": "Recorded pack field is 0.00 V on every published card. Sample Vbus is a 1S-under-load curve vs ISA T for this flight clock.",
+    "sample": [
+      { "cdt": "13:17", "ft": 700, "isa_c": 31.1, "sample_vbus": 4.12, "recorded_v": 0.00, "state": "V field already 0 on desk" },
+      { "cdt": "13:27", "ft": 10540, "isa_c": -5.5, "sample_vbus": 3.42, "recorded_v": null, "state": "climb" },
+      { "cdt": "13:35", "ft": 18388, "isa_c": -20.8, "sample_vbus": 2.82, "recorded_v": null, "state": "LiPo sag zone" },
+      { "cdt": "13:53", "ft": 36124, "isa_c": -56.3, "sample_vbus": 0.00, "recorded_v": null, "state": "tropopause cutoff" },
+      { "cdt": "14:23", "ft": 65000, "isa_c": -56.5, "sample_vbus": 0.00, "recorded_v": null, "state": "isothermal dead bus" },
+      { "cdt": "14:48", "ft": 90356, "isa_c": -49.0, "sample_vbus": 0.00, "recorded_v": null, "state": "no restart at burst" },
+      { "cdt": "15:20", "ft": 45000, "isa_c": -56.5, "sample_vbus": 0.00, "recorded_v": null, "state": "descent still cold" },
+      { "cdt": "15:54", "ft": 0, "isa_c": 8.0, "sample_vbus": 0.00, "recorded_v": 0.00, "state": "NO SIGNAL, Loc blank" }
+    ]
   },
-  "notes": "X2Griffon maiden. Cold weather failed multiple battery systems. xFall2 survived and reported landing in the S 5th Pl woods, Vigo County, IN.",
+  "missing": [
+    "payload GPS at the trees",
+    "measured burst time",
+    "measured pressure/humidity profile",
+    "measured UV",
+    "live APRS after the near-pad packet"
+  ],
+  "notes": "X2Griffon maiden. Cold weather failed multiple battery systems. xFall2 survived and reported landing in the S 5th Pl woods, Vigo County, IN. Do not navigate to GFS pin 39.50680, -87.50612.",
   "source": "X2Griffon_Sep19_Landing_Brief",
-  "published_at": "2026-09-20T14:53:00Z"
+  "platform_repo": "https://github.com/Midwest-Stratospheric/x2griffon",
+  "published_at": "2026-09-20T14:53:00Z",
+  "updated_at": "2026-09-20T20:18:00Z"
 }
