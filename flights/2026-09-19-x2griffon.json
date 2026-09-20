@@ -45,8 +45,7 @@
     "descent_sl_ft_s": 11.9,
     "gfs_duration": "2 h 31 min",
     "climatology_duration": "2 h 32 min",
-    "climatology_pin": { "latitude": 39.29478, "longitude": -87.42914, "offset": "29 mi E", "scatter_mi": 4.2 },
-    "gfs_pin_do_not_use": { "latitude": 39.50680, "longitude": -87.50612, "offset": "28 mi ENE", "scatter_mi": 3.9, "note": "15.21 mi north of woods pin" }
+    "climatology_pin": { "latitude": 39.29478, "longitude": -87.42914, "offset": "29 mi E", "scatter_mi": 4.2 }
   },
   "profile": {
     "ascent_min": 91,
@@ -204,9 +203,9 @@
     "live APRS after the near-pad packet",
     "U4B WSPR pair / 6-character grid"
   ],
-  "notes": "X2Griffon maiden. Cold weather failed multiple battery systems. Internal payload 8 C at 35,000 ft vs ISA outside -54.3 C. xFall2 reported landing in the S 5th Pl woods, Vigo County, IN. Do not navigate to GFS pin 39.50680, -87.50612. U4B card had no WSPR fix.",
+  "notes": "X2Griffon maiden. Burst 90,356 ft after 157 minutes. Landed in the S 5th Pl woods, Vigo County, Indiana, 29.6 miles downrange. Recovery reported by xFall2. Cold weather dropped several payload battery systems; internal air was 8 C at 35,000 ft.",
   "source": "X2Griffon_Sep19_Landing_Brief",
   "platform_repo": "https://github.com/Midwest-Stratospheric/x2griffon",
   "published_at": "2026-09-20T14:53:00Z",
-  "updated_at": "2026-09-20T20:22:00Z"
+  "updated_at": "2026-09-20T21:00:00Z"
 }
