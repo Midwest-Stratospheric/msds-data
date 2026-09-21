@@ -18,6 +18,13 @@ OUT_DIR = Path("ground-weather/wunderground")
 TZ = ZoneInfo("America/Chicago")
 
 
+def first(*vals):
+    for v in vals:
+        if v is not None:
+            return v
+    return None
+
+
 def fetch_json(url: str) -> dict:
     req = Request(url, headers={"User-Agent": "MSDS-GroundWeather-WU/1.0"})
     with urlopen(req, timeout=30) as resp:
@@ -29,18 +36,20 @@ def row_from_obs(obs: dict) -> dict:
     return {
         "time_local": obs.get("obsTimeLocal"),
         "time_utc": obs.get("obsTimeUtc"),
-        "temp_f": imp.get("temp"),
-        "dewpt_f": imp.get("dewpt"),
-        "heat_index_f": imp.get("heatIndex"),
-        "humidity_pct": obs.get("humidity"),
-        "wind_mph": imp.get("windSpeed"),
-        "gust_mph": imp.get("windGust"),
-        "winddir_deg": obs.get("winddir"),
-        "pressure_in": imp.get("pressure"),
+        "temp_f": first(imp.get("temp"), imp.get("tempAvg")),
+        "dewpt_f": first(imp.get("dewpt"), imp.get("dewptAvg")),
+        "heat_index_f": first(imp.get("heatIndex"), imp.get("heatindexAvg")),
+        "humidity_pct": first(obs.get("humidity"), obs.get("humidityAvg")),
+        "wind_mph": first(imp.get("windSpeed"), imp.get("windspeedAvg")),
+        "gust_mph": first(imp.get("windGust"), imp.get("windgustHigh")),
+        "winddir_deg": first(obs.get("winddir"), obs.get("winddirAvg")),
+        "pressure_in": first(imp.get("pressure"), imp.get("pressureMax")),
         "precip_rate_in": imp.get("precipRate"),
         "precip_total_in": imp.get("precipTotal"),
-        "uv": obs.get("uv"),
-        "solar": obs.get("solarRadiation"),
+        "uv": first(obs.get("uv"), obs.get("uvHigh")),
+        "solar_wm2": first(obs.get("solarRadiation"), obs.get("solarRadiationHigh")),
+        "solar": first(obs.get("solarRadiation"), obs.get("solarRadiationHigh")),
+        "solar_high_wm2": obs.get("solarRadiationHigh"),
     }
 
 
@@ -53,10 +62,17 @@ def main() -> int:
     current = fetch_json(f"{base}/observations/current?{q}")
     day = fetch_json(f"{base}/observations/all/1day?{q}")
     obs = (current.get("observations") or [None])[0] or {}
+    day_rows = day.get("observations") or []
+    last = day_rows[-1] if day_rows else {}
     imp = obs.get("imperial") or {}
-    series = [row_from_obs(r) for r in (day.get("observations") or [])]
+    series = [row_from_obs(r) for r in day_rows]
     now = datetime.now(timezone.utc)
     local = datetime.now(TZ)
+    cur = row_from_obs(obs)
+    last_row = row_from_obs(last) if last else {}
+    for key in list(cur.keys()):
+        if cur.get(key) is None and last_row.get(key) is not None:
+            cur[key] = last_row.get(key)
     pack = {
         "dataset": STATION_NAME,
         "layer": "ground-weather",
@@ -75,14 +91,14 @@ def main() -> int:
             "provider": "Weather Underground / The Weather Company",
             "product": "PWS observations",
             "station_id": STATION,
-            "attribution": STATION_NAME + ". Not KILCASEY32 (Sloan's Back Yard).",
+            "attribution": STATION_NAME,
         },
         "collection": {
             "date": local.strftime("%Y-%m-%d"),
             "collected_at_local": local.strftime("%Y-%m-%dT%H:%M"),
             "collected_at_utc": now.strftime("%Y-%m-%dT%H:%M:%SZ"),
         },
-        "current": row_from_obs(obs),
+        "current": cur,
         "observations_1day_count": len(series),
         "observations_1day": series,
     }
@@ -92,9 +108,10 @@ def main() -> int:
     text = json.dumps(pack, indent=2) + "\n"
     dated.write_text(text, encoding="utf-8")
     latest.write_text(text, encoding="utf-8")
-    cur = pack["current"]
     print(f"Wrote {dated} and {latest}")
-    print(f"  {STATION_NAME} {cur.get('temp_f')} F  RH {cur.get('humidity_pct')}%")
+    print(
+        f"  {STATION_NAME} {cur.get('temp_f')} F  RH {cur.get('humidity_pct')}%  solar {cur.get('solar_wm2')} W/m2"
+    )
     return 0
 
 
