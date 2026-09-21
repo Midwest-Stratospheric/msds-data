@@ -1,11 +1,11 @@
 {
-  "dataset": "Midwest Stratospheric Data Systems Ground Weather Data",
+  "dataset": "Aerostratospheric Fixed Weather Station KILCASEY47",
   "layer": "ground-weather",
   "kind": "fixed_ground_station",
   "station": {
     "id": "KILCASEY47",
     "network": "Weather Underground",
-    "name": "Aerostratospheric",
+    "name": "Aerostratospheric Fixed Weather Station KILCASEY47",
     "neighborhood": "Casey",
     "latitude": 39.296443,
     "longitude": -87.985145,
@@ -16,7 +16,7 @@
     "provider": "Weather Underground / The Weather Company",
     "product": "PWS observations",
     "station_id": "KILCASEY47",
-    "attribution": "Observations from Aerostratospheric Weather Underground station KILCASEY47."
+    "attribution": "Aerostratospheric Fixed Weather Station KILCASEY47. Not KILCASEY32 (Sloan's Back Yard)."
   },
   "collection": {
     "date": "2026-09-20",
