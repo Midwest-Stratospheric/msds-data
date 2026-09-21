@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Pull Casey IL Weather Underground PWS KILCASEY32 into msds-data/ground-weather/wunderground/."""
+"""Pull Aerostratospheric Weather Underground PWS KILCASEY47 into ground-weather/wunderground/."""
 
 from __future__ import annotations
 
@@ -11,7 +11,7 @@ from pathlib import Path
 from urllib.request import Request, urlopen
 from zoneinfo import ZoneInfo
 
-STATION = os.environ.get("WU_STATION", "KILCASEY32")
+STATION = os.environ.get("WU_STATION", "KILCASEY47")
 API_KEY = os.environ.get("WU_API_KEY", "").strip()
 OUT_DIR = Path("ground-weather/wunderground")
 TZ = ZoneInfo("America/Chicago")
@@ -63,7 +63,7 @@ def main() -> int:
         "station": {
             "id": STATION,
             "network": "Weather Underground",
-            "name": "Casey, Illinois",
+            "name": "Aerostratospheric",
             "neighborhood": obs.get("neighborhood"),
             "latitude": obs.get("lat"),
             "longitude": obs.get("lon"),
@@ -74,7 +74,7 @@ def main() -> int:
             "provider": "Weather Underground / The Weather Company",
             "product": "PWS observations",
             "station_id": STATION,
-            "attribution": f"Observations from Weather Underground personal weather station {STATION}.",
+            "attribution": f"Observations from Aerostratospheric Weather Underground station {STATION}.",
         },
         "collection": {
             "date": local.strftime("%Y-%m-%d"),

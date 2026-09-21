@@ -3,41 +3,40 @@
   "layer": "ground-weather",
   "kind": "fixed_ground_station",
   "station": {
-    "id": "KILCASEY32",
+    "id": "KILCASEY47",
     "network": "Weather Underground",
-    "name": "Casey, Illinois",
+    "name": "Aerostratospheric",
     "neighborhood": "Casey",
-    "latitude": 39.299408,
-    "longitude": -87.998198,
-    "elevation_ft": 650.0,
-    "dashboard": "https://www.wunderground.com/dashboard/pws/KILCASEY32"
+    "latitude": 39.296443,
+    "longitude": -87.985145,
+    "elevation_ft": 300.0,
+    "dashboard": "https://www.wunderground.com/dashboard/pws/KILCASEY47"
   },
   "source": {
     "provider": "Weather Underground / The Weather Company",
     "product": "PWS observations",
-    "station_id": "KILCASEY32",
-    "attribution": "Observations from Weather Underground personal weather station KILCASEY32."
+    "station_id": "KILCASEY47",
+    "attribution": "Observations from Aerostratospheric Weather Underground station KILCASEY47."
   },
   "collection": {
     "date": "2026-09-20",
-    "collected_at_local": "2026-09-20T19:33",
-    "collected_at_utc": "2026-09-21T00:33:33Z"
+    "collected_at_local": "2026-09-20T19:36",
+    "collected_at_utc": "2026-09-21T00:36:00Z"
   },
   "current": {
-    "obs_time_local": "2026-09-20 19:32:00",
-    "obs_time_utc": "2026-09-21T00:32:00Z",
+    "obs_time_local": "2026-09-20 19:36:23",
+    "obs_time_utc": "2026-09-21T00:36:23Z",
     "temp_f": 79.2,
-    "heat_index_f": 82.3,
-    "dewpt_f": 71.3,
-    "humidity_pct": 77.0,
-    "wind_mph": 2.2,
-    "gust_mph": 3.4,
-    "winddir_deg": 244,
-    "pressure_in": 29.83,
+    "heat_index_f": 81.9,
+    "dewpt_f": 69.4,
+    "humidity_pct": 72.0,
+    "wind_mph": 6.1,
+    "gust_mph": 7.7,
+    "winddir_deg": 45,
+    "pressure_in": 29.89,
     "precip_rate_in": 0.0,
     "precip_total_in": 0.0,
     "uv": 0.0,
-    "solar_radiation": 0.0,
-    "qc_status": 1
+    "solar": 0.0
   }
 }

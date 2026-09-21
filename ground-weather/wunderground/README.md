@@ -1,11 +1,9 @@
-# Casey ground station — Weather Underground
+# Aerostratospheric ground station — Weather Underground
 
-Fixed PWS **KILCASEY32** in Casey, Illinois.
-Dashboard: https://www.wunderground.com/dashboard/pws/KILCASEY32
+Fixed PWS **KILCASEY47** (Aerostratospheric), Casey, Illinois.
+Same coordinates as NASA GLOBE site 422147.
+Dashboard: https://www.wunderground.com/dashboard/pws/KILCASEY47
 
-GitHub Actions writes `latest.json` and `YYYY-MM-DD.json` here from the Weather Company PWS API.
+Do not use KILCASEY32 — that is a neighboring station.
 
-Add repository secret **WU_API_KEY** (Weather Underground / weather.com key), then run the workflow **WU Casey ground station (KILCASEY32)**.
-Do not commit the API key.
-
-Attribution: Weather Underground personal weather station observations. Archive compiled by Midwest Stratospheric Data Systems.
+Add repository secret **WU_API_KEY**, then run workflow **WU Aerostratospheric ground station (KILCASEY47)**.
