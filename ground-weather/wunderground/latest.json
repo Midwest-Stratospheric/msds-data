@@ -1,0 +1,43 @@
+{
+  "dataset": "Midwest Stratospheric Data Systems Ground Weather Data",
+  "layer": "ground-weather",
+  "kind": "fixed_ground_station",
+  "station": {
+    "id": "KILCASEY32",
+    "network": "Weather Underground",
+    "name": "Casey, Illinois",
+    "neighborhood": "Casey",
+    "latitude": 39.299408,
+    "longitude": -87.998198,
+    "elevation_ft": 650.0,
+    "dashboard": "https://www.wunderground.com/dashboard/pws/KILCASEY32"
+  },
+  "source": {
+    "provider": "Weather Underground / The Weather Company",
+    "product": "PWS observations",
+    "station_id": "KILCASEY32",
+    "attribution": "Observations from Weather Underground personal weather station KILCASEY32."
+  },
+  "collection": {
+    "date": "2026-09-20",
+    "collected_at_local": "2026-09-20T19:33",
+    "collected_at_utc": "2026-09-21T00:33:33Z"
+  },
+  "current": {
+    "obs_time_local": "2026-09-20 19:32:00",
+    "obs_time_utc": "2026-09-21T00:32:00Z",
+    "temp_f": 79.2,
+    "heat_index_f": 82.3,
+    "dewpt_f": 71.3,
+    "humidity_pct": 77.0,
+    "wind_mph": 2.2,
+    "gust_mph": 3.4,
+    "winddir_deg": 244,
+    "pressure_in": 29.83,
+    "precip_rate_in": 0.0,
+    "precip_total_in": 0.0,
+    "uv": 0.0,
+    "solar_radiation": 0.0,
+    "qc_status": 1
+  }
+}

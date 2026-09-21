@@ -1,0 +1,29 @@
+name: WU Casey ground station (KILCASEY32)
+
+on:
+  schedule:
+    - cron: "20 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-wu:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fetch Weather Underground PWS
+        env:
+          WU_API_KEY: ${{ secrets.WU_API_KEY }}
+          WU_STATION: KILCASEY32
+        run: python scripts/fetch_wu_ground_weather.py
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "data: update Casey WU KILCASEY32 ground weather"
+          file_pattern: ground-weather/wunderground/*.json
+          commit_user_name: MSDS Data Bot
+          commit_user_email: launchcontrol@midwestsds.com
