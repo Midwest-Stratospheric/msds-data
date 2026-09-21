@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Pull Aerostratospheric Weather Underground PWS KILCASEY47 into ground-weather/wunderground/."""
+"""Pull Aerostratospheric Fixed Weather Station KILCASEY47 into ground-weather/wunderground/."""
 
 from __future__ import annotations
 
@@ -12,6 +12,7 @@ from urllib.request import Request, urlopen
 from zoneinfo import ZoneInfo
 
 STATION = os.environ.get("WU_STATION", "KILCASEY47")
+STATION_NAME = "Aerostratospheric Fixed Weather Station KILCASEY47"
 API_KEY = os.environ.get("WU_API_KEY", "").strip()
 OUT_DIR = Path("ground-weather/wunderground")
 TZ = ZoneInfo("America/Chicago")
@@ -57,13 +58,13 @@ def main() -> int:
     now = datetime.now(timezone.utc)
     local = datetime.now(TZ)
     pack = {
-        "dataset": "Midwest Stratospheric Data Systems Ground Weather Data",
+        "dataset": STATION_NAME,
         "layer": "ground-weather",
         "kind": "fixed_ground_station",
         "station": {
             "id": STATION,
             "network": "Weather Underground",
-            "name": "Aerostratospheric",
+            "name": STATION_NAME,
             "neighborhood": obs.get("neighborhood"),
             "latitude": obs.get("lat"),
             "longitude": obs.get("lon"),
@@ -74,7 +75,7 @@ def main() -> int:
             "provider": "Weather Underground / The Weather Company",
             "product": "PWS observations",
             "station_id": STATION,
-            "attribution": f"Observations from Aerostratospheric Weather Underground station {STATION}.",
+            "attribution": STATION_NAME + ". Not KILCASEY32 (Sloan's Back Yard).",
         },
         "collection": {
             "date": local.strftime("%Y-%m-%d"),
@@ -93,7 +94,7 @@ def main() -> int:
     latest.write_text(text, encoding="utf-8")
     cur = pack["current"]
     print(f"Wrote {dated} and {latest}")
-    print(f"  {STATION} {cur.get('temp_f')} F  RH {cur.get('humidity_pct')}%")
+    print(f"  {STATION_NAME} {cur.get('temp_f')} F  RH {cur.get('humidity_pct')}%")
     return 0
 
 
