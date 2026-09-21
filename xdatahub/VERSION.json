@@ -1,6 +1,7 @@
 {
   "name": "xDataHub",
-  "version": "1.1.0",
-  "date": "2026-09-20",
-  "file": "msds-data-hub.html"
+  "version": "1.2.0",
+  "date": "2026-09-21",
+  "file": "msds-data-hub.html",
+  "channel": "grok-artifacts"
 }
