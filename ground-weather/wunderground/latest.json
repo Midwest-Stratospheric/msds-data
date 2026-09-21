@@ -1,1 +1,59 @@
-PLACEHOLDER
+{
+  "dataset": "Aerostratospheric Fixed Weather Station KILCASEY47",
+  "layer": "ground-weather",
+  "kind": "fixed_ground_station",
+  "station": {
+    "id": "KILCASEY47",
+    "network": "Weather Underground",
+    "name": "Aerostratospheric Fixed Weather Station KILCASEY47",
+    "neighborhood": "Casey",
+    "latitude": 39.296443,
+    "longitude": -87.985145,
+    "elevation_ft": 300.0,
+    "dashboard": "https://www.wunderground.com/dashboard/pws/KILCASEY47"
+  },
+  "source": {
+    "provider": "Weather Underground / The Weather Company",
+    "product": "PWS observations",
+    "station_id": "KILCASEY47",
+    "attribution": "Aerostratospheric Fixed Weather Station KILCASEY47"
+  },
+  "collection": {
+    "date": "2026-09-21",
+    "collected_at_local": "2026-09-21T16:11",
+    "collected_at_utc": "2026-09-21T21:11:00Z"
+  },
+  "current": {
+    "time_local": "2026-09-21 16:10:26",
+    "time_utc": "2026-09-21T21:10:26Z",
+    "temp_f": 68.5,
+    "dewpt_f": 63.2,
+    "heat_index_f": 68.5,
+    "humidity_pct": 83.0,
+    "wind_mph": 3.9,
+    "gust_mph": 0.0,
+    "winddir_deg": 92,
+    "pressure_in": 30.02,
+    "precip_rate_in": 0.0,
+    "precip_total_in": 1.05,
+    "uv": 1.0,
+    "solar_wm2": 106.9,
+    "solar": 106.9,
+    "solar_high_wm2": 95.2
+  },
+  "observations_1day_count": 194,
+  "observations_1day": [
+    {"time_local": "2026-09-21 15:14:26", "time_utc": "2026-09-21T20:14:26Z", "temp_f": 68.7, "dewpt_f": 63.3, "heat_index_f": 68.7, "humidity_pct": 83.0, "wind_mph": 3.9, "gust_mph": 0.0, "winddir_deg": 92, "pressure_in": 30.03, "precip_rate_in": 0.0, "precip_total_in": 1.05, "uv": 1.0, "solar_wm2": 120.0, "solar": 120.0, "solar_high_wm2": 120.0},
+    {"time_local": "2026-09-21 15:19:26", "time_utc": "2026-09-21T20:19:26Z", "temp_f": 68.7, "dewpt_f": 63.3, "heat_index_f": 68.7, "humidity_pct": 83.0, "wind_mph": 3.9, "gust_mph": 0.0, "winddir_deg": 92, "pressure_in": 30.03, "precip_rate_in": 0.0, "precip_total_in": 1.05, "uv": 1.0, "solar_wm2": 115.0, "solar": 115.0, "solar_high_wm2": 115.0},
+    {"time_local": "2026-09-21 15:24:26", "time_utc": "2026-09-21T20:24:26Z", "temp_f": 68.7, "dewpt_f": 63.3, "heat_index_f": 68.7, "humidity_pct": 83.0, "wind_mph": 3.9, "gust_mph": 0.0, "winddir_deg": 92, "pressure_in": 30.03, "precip_rate_in": 0.0, "precip_total_in": 1.05, "uv": 1.0, "solar_wm2": 110.0, "solar": 110.0, "solar_high_wm2": 110.0},
+    {"time_local": "2026-09-21 15:29:26", "time_utc": "2026-09-21T20:29:26Z", "temp_f": 68.7, "dewpt_f": 63.3, "heat_index_f": 68.7, "humidity_pct": 83.0, "wind_mph": 3.9, "gust_mph": 0.0, "winddir_deg": 92, "pressure_in": 30.03, "precip_rate_in": 0.0, "precip_total_in": 1.05, "uv": 1.0, "solar_wm2": 105.0, "solar": 105.0, "solar_high_wm2": 105.0},
+    {"time_local": "2026-09-21 15:34:26", "time_utc": "2026-09-21T20:34:26Z", "temp_f": 68.7, "dewpt_f": 63.3, "heat_index_f": 68.7, "humidity_pct": 83.0, "wind_mph": 3.9, "gust_mph": 0.0, "winddir_deg": 92, "pressure_in": 30.03, "precip_rate_in": 0.0, "precip_total_in": 1.05, "uv": 1.0, "solar_wm2": 100.0, "solar": 100.0, "solar_high_wm2": 100.0},
+    {"time_local": "2026-09-21 15:39:26", "time_utc": "2026-09-21T20:39:26Z", "temp_f": 68.7, "dewpt_f": 63.3, "heat_index_f": 68.7, "humidity_pct": 83.0, "wind_mph": 3.9, "gust_mph": 0.0, "winddir_deg": 92, "pressure_in": 30.03, "precip_rate_in": 0.0, "precip_total_in": 1.05, "uv": 1.0, "solar_wm2": 100.0, "solar": 100.0, "solar_high_wm2": 100.0},
+    {"time_local": "2026-09-21 15:44:26", "time_utc": "2026-09-21T20:44:26Z", "temp_f": 68.7, "dewpt_f": 63.3, "heat_index_f": 68.7, "humidity_pct": 83.0, "wind_mph": 3.9, "gust_mph": 0.0, "winddir_deg": 92, "pressure_in": 30.03, "precip_rate_in": 0.0, "precip_total_in": 1.05, "uv": 1.0, "solar_wm2": 100.0, "solar": 100.0, "solar_high_wm2": 100.0},
+    {"time_local": "2026-09-21 15:49:26", "time_utc": "2026-09-21T20:49:26Z", "temp_f": 68.7, "dewpt_f": 63.3, "heat_index_f": 68.7, "humidity_pct": 83.0, "wind_mph": 3.9, "gust_mph": 0.0, "winddir_deg": 92, "pressure_in": 30.03, "precip_rate_in": 0.0, "precip_total_in": 1.05, "uv": 1.0, "solar_wm2": 100.0, "solar": 100.0, "solar_high_wm2": 100.0},
+    {"time_local": "2026-09-21 15:54:26", "time_utc": "2026-09-21T20:54:26Z", "temp_f": 68.7, "dewpt_f": 63.3, "heat_index_f": 68.7, "humidity_pct": 83.0, "wind_mph": 3.9, "gust_mph": 0.0, "winddir_deg": 92, "pressure_in": 30.04, "precip_rate_in": 0.0, "precip_total_in": 1.05, "uv": 1.0, "solar_wm2": 100.4, "solar": 100.4, "solar_high_wm2": 100.4},
+    {"time_local": "2026-09-21 15:59:26", "time_utc": "2026-09-21T20:59:26Z", "temp_f": 68.5, "dewpt_f": 63.3, "heat_index_f": 68.5, "humidity_pct": 83.2, "wind_mph": 3.9, "gust_mph": 0.0, "winddir_deg": 92, "pressure_in": 30.03, "precip_rate_in": 0.0, "precip_total_in": 1.05, "uv": 1.0, "solar_wm2": 100.4, "solar": 100.4, "solar_high_wm2": 100.4},
+    {"time_local": "2026-09-21 16:04:26", "time_utc": "2026-09-21T21:04:26Z", "temp_f": 68.5, "dewpt_f": 63.6, "heat_index_f": 68.5, "humidity_pct": 84.4, "wind_mph": 3.9, "gust_mph": 0.0, "winddir_deg": 92, "pressure_in": 30.04, "precip_rate_in": 0.0, "precip_total_in": 1.05, "uv": 1.0, "solar_wm2": 78.7, "solar": 78.7, "solar_high_wm2": 78.7},
+    {"time_local": "2026-09-21 16:09:26", "time_utc": "2026-09-21T21:09:26Z", "temp_f": 68.5, "dewpt_f": 63.3, "heat_index_f": 68.5, "humidity_pct": 83.2, "wind_mph": 3.9, "gust_mph": 0.0, "winddir_deg": 92, "pressure_in": 30.03, "precip_rate_in": 0.0, "precip_total_in": 1.05, "uv": 1.0, "solar_wm2": 95.2, "solar": 95.2, "solar_high_wm2": 95.2}
+  ]
+}
