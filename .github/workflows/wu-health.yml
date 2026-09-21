@@ -1,0 +1,104 @@
+name: WU Ground Station Health
+
+on:
+  schedule:
+    - cron: "50 * * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: wu-health
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check KILCASEY47 freshness
+        id: check
+        run: |
+          python3 <<'PY'
+          import json, os
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          now = datetime.now(timezone.utc)
+          path = Path("ground-weather/wunderground/latest.json")
+          status = "ok"
+          reasons = []
+          age_h = None
+          current = {}
+          if not path.exists():
+              status = "missing"
+              reasons.append("ground-weather/wunderground/latest.json missing")
+          else:
+              try:
+                  doc = json.loads(path.read_text())
+              except Exception as e:
+                  status = "invalid_json"
+                  reasons.append(str(e))
+                  doc = {}
+              current = doc.get("current") or {}
+              ts = (doc.get("collection") or {}).get("collected_at_utc") or current.get("time_utc")
+              if ts:
+                  try:
+                      t = datetime.fromisoformat(str(ts).replace("Z", "+00:00"))
+                      age_h = (now - t).total_seconds() / 3600.0
+                      if age_h > 2.5:
+                          status = "stale"
+                          reasons.append(f"age {age_h:.1f}h > 2.5h")
+                  except Exception as e:
+                      reasons.append(f"bad timestamp {ts}: {e}")
+              else:
+                  status = "stale"
+                  reasons.append("no collected_at_utc")
+
+          critical = status in ("missing", "invalid_json", "stale")
+          report = {
+              "schema": "msds-data.wu_health.v1",
+              "generated_at_utc": now.strftime("%Y-%m-%dT%H:%M:%SZ"),
+              "ok": not critical,
+              "critical_fail": critical,
+              "status": status,
+              "reasons": reasons,
+              "age_hours": None if age_h is None else round(age_h, 2),
+              "station": "KILCASEY47",
+              "temp_f": current.get("temp_f"),
+              "humidity_pct": current.get("humidity_pct"),
+              "solar_wm2": current.get("solar_wm2"),
+              "redispatch_workflow": "wu-ground-weather.yml",
+              "host": "github-actions",
+              "note": "Replaces Hostinger cron for WU PWS ingest health.",
+          }
+          Path("status").mkdir(exist_ok=True)
+          Path("status/wu-health.json").write_text(json.dumps(report, indent=2) + "\n")
+          print(json.dumps(report, indent=2))
+          out = os.environ["GITHUB_OUTPUT"]
+          with open(out, "a") as f:
+              f.write(f"critical={'true' if critical else 'false'}\n")
+          PY
+
+      - name: Commit health status
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "ops(health): WU KILCASEY47 health report"
+          file_pattern: status/wu-health.json
+          commit_user_name: MSDS Data Bot
+          commit_user_email: launchcontrol@midwestsds.com
+
+      - name: Re-run WU ingest if stale
+        if: steps.check.outputs.critical == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          curl -sS -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/workflows/wu-ground-weather.yml/dispatches" \
+            -d '{"ref":"main"}'
