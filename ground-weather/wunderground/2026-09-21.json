@@ -41,6 +41,5 @@
     "solar": 87.1,
     "solar_high_wm2": 76.1
   },
-  "observations_1day_count": 177,
-  "note": "latest keeps last 12 of 1-day series; count is full-day sample count"
+  "observations_1day_count": 177
 }
