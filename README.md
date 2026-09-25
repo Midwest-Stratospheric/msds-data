@@ -45,6 +45,12 @@ Daily surface weather observations automatically archived as **Midwest Stratosph
     raw/
 ```
 
+## Collaborate on this data
+
+These files feed xDataHub, our public open atmospheric data dashboard at https://www.midwestsds.com/msds-data-hub.html, and the wider UOGW commons (API docs: https://www.midwestsds.com/data/v1/api.html). Flown packages so far include the Sep 12, 2026 x1Albatross envelope check (burst 59,000 ft) and the Sep 19, 2026 X2Griffon maiden flight (burst 90,356 ft); see https://www.midwestsds.com/flights.html.
+
+If you work on soundings, surface stations, or classroom data projects and see a fit for data collaboration, email space@aerostratospheric.com or book a 15 minute intro at https://calendly.com/aerostratospheric/15min
+
 ## Related Repositories
 
 - [msds-website](https://github.com/Midwest-Stratospheric/msds-website) — Public data portal and site
