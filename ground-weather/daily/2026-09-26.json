@@ -1,0 +1,91 @@
+{
+  "dataset": "Midwest Stratospheric Data Systems Ground Weather Data",
+  "location": {
+    "name": "Casey, Illinois",
+    "latitude": 39.2992,
+    "longitude": -87.9925,
+    "elevation_m": 200,
+    "timezone": "America/Chicago"
+  },
+  "source": {
+    "provider": "Open-Meteo",
+    "url": "https://open-meteo.com/",
+    "license": "CC BY 4.0",
+    "attribution": "Weather data by Open-Meteo.com",
+    "radiation_layer": "UOGW Casey GMC-800"
+  },
+  "collection": {
+    "date": "2026-09-26",
+    "collected_at_local": "2026-09-26T11:03",
+    "collected_at_utc": "2026-09-26T16:03:15Z",
+    "notes": "Automated daily ground-level observation for MSDS flight context and open data archive. Includes co-located GMC-800 radiation when UOGW latest.json is present."
+  },
+  "current": {
+    "time": "2026-09-26T11:00",
+    "temperature_2m_f": 70.4,
+    "relative_humidity_2m_pct": 44,
+    "apparent_temperature_f": 68.1,
+    "precipitation_in": 0.0,
+    "weather_code": 3,
+    "weather_description": "Overcast",
+    "pressure_msl_hpa": 1020.9,
+    "surface_pressure_hpa": 997.5,
+    "wind_speed_10m_mph": 6.4,
+    "wind_direction_10m_deg": 78,
+    "wind_gusts_10m_mph": 7.4
+  },
+  "daily": {
+    "date": "2026-09-26",
+    "temperature_2m_max_f": 76.9,
+    "temperature_2m_min_f": 54.4,
+    "apparent_temperature_max_f": 74.9,
+    "apparent_temperature_min_f": 52.5,
+    "precipitation_sum_in": 0.0,
+    "rain_sum_in": 0.0,
+    "snowfall_sum_in": 0.0,
+    "precipitation_hours": 0.0,
+    "wind_speed_10m_max_mph": 8.1,
+    "wind_gusts_10m_max_mph": 15.4,
+    "wind_direction_10m_dominant_deg": 60
+  },
+  "radiation": {
+    "available": true,
+    "layer": "UOGW",
+    "credit": "Unified Open Global Weather (UOGW)",
+    "xdatahub": "https://www.midwestsds.com/msds-data-hub.html",
+    "source_url": "https://raw.githubusercontent.com/Midwest-Stratospheric/Unified-Open-Global-Weather/main/layers/ground/casey/gmc-800/latest.json",
+    "station_id": "MSDS-GMC800-CASEY",
+    "instrument": "GQ Electronics GMC-800",
+    "kind": "fixed_ground_station",
+    "native_interval": "1min",
+    "product_interval": "hourly",
+    "window_start_local": "2026-09-16T10:01:00",
+    "window_end_local": "2026-09-25T07:52:00",
+    "observation_count": 12832,
+    "cpm": {
+      "mean": 15.1201,
+      "min": 3.0,
+      "max": 33.0,
+      "median": 15.0,
+      "n": 12832
+    },
+    "usv_h": {
+      "mean": 0.0982,
+      "min": 0.02,
+      "max": 0.214,
+      "median": 0.097,
+      "n": 12832
+    },
+    "latest_hour": null,
+    "note": "Co-located Casey ionizing radiation. Research series, not a health-physics product."
+  },
+  "units": {
+    "temperature": "°F",
+    "precipitation": "inch",
+    "wind_speed": "mph",
+    "pressure": "hPa",
+    "humidity": "%",
+    "cpm": "counts per minute",
+    "usv_h": "µSv/h"
+  }
+}
