@@ -20,28 +20,28 @@
   },
   "collection": {
     "date": "2026-09-28",
-    "collected_at_local": "2026-09-28T10:18",
-    "collected_at_utc": "2026-09-28T15:18:41Z"
+    "collected_at_local": "2026-09-28T10:32",
+    "collected_at_utc": "2026-09-28T15:32:41Z"
   },
   "current": {
-    "time_local": "2026-09-28 10:18:24",
-    "time_utc": "2026-09-28T15:18:24Z",
-    "temp_f": 69.3,
-    "dewpt_f": 56.2,
-    "heat_index_f": 69.3,
-    "humidity_pct": 63.0,
+    "time_local": "2026-09-28 10:32:24",
+    "time_utc": "2026-09-28T15:32:24Z",
+    "temp_f": 72.1,
+    "dewpt_f": 56.1,
+    "heat_index_f": 71.7,
+    "humidity_pct": 57.0,
     "wind_mph": 0.0,
     "gust_mph": 0.0,
     "winddir_deg": 104,
     "pressure_in": 30.11,
     "precip_rate_in": 0.0,
     "precip_total_in": 0.0,
-    "uv": 1.0,
-    "solar_wm2": 97.8,
-    "solar": 97.8,
-    "solar_high_wm2": 58.7
+    "uv": 4.0,
+    "solar_wm2": 427.7,
+    "solar": 427.7,
+    "solar_high_wm2": 435.9
   },
-  "observations_1day_count": 123,
+  "observations_1day_count": 126,
   "observations_1day": [
     {
       "time_local": "2026-09-28 00:04:23",
@@ -2256,6 +2256,60 @@
       "solar_wm2": 58.7,
       "solar": 58.7,
       "solar_high_wm2": 58.7
+    },
+    {
+      "time_local": "2026-09-28 10:19:24",
+      "time_utc": "2026-09-28T15:19:24Z",
+      "temp_f": 68.8,
+      "dewpt_f": 56.1,
+      "heat_index_f": 68.8,
+      "humidity_pct": 64.0,
+      "wind_mph": 0.0,
+      "gust_mph": 0.0,
+      "winddir_deg": 104,
+      "pressure_in": 30.11,
+      "precip_rate_in": 0.0,
+      "precip_total_in": 0.0,
+      "uv": 1.0,
+      "solar_wm2": 126.3,
+      "solar": 126.3,
+      "solar_high_wm2": 126.3
+    },
+    {
+      "time_local": "2026-09-28 10:24:24",
+      "time_utc": "2026-09-28T15:24:24Z",
+      "temp_f": 71.2,
+      "dewpt_f": 56.4,
+      "heat_index_f": 70.8,
+      "humidity_pct": 59.4,
+      "wind_mph": 0.0,
+      "gust_mph": 0.0,
+      "winddir_deg": 104,
+      "pressure_in": 30.11,
+      "precip_rate_in": 0.0,
+      "precip_total_in": 0.0,
+      "uv": 3.0,
+      "solar_wm2": 384.9,
+      "solar": 384.9,
+      "solar_high_wm2": 384.9
+    },
+    {
+      "time_local": "2026-09-28 10:29:24",
+      "time_utc": "2026-09-28T15:29:24Z",
+      "temp_f": 72.2,
+      "dewpt_f": 55.8,
+      "heat_index_f": 71.8,
+      "humidity_pct": 56.2,
+      "wind_mph": 0.0,
+      "gust_mph": 0.0,
+      "winddir_deg": 104,
+      "pressure_in": 30.11,
+      "precip_rate_in": 0.0,
+      "precip_total_in": 0.0,
+      "uv": 4.0,
+      "solar_wm2": 435.9,
+      "solar": 435.9,
+      "solar_high_wm2": 435.9
     }
   ]
 }
