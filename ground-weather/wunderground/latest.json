@@ -20,28 +20,28 @@
   },
   "collection": {
     "date": "2026-10-04",
-    "collected_at_local": "2026-10-04T12:26",
-    "collected_at_utc": "2026-10-04T17:26:50Z"
+    "collected_at_local": "2026-10-04T12:36",
+    "collected_at_utc": "2026-10-04T17:36:35Z"
   },
   "current": {
-    "time_local": "2026-10-04 12:26:09",
-    "time_utc": "2026-10-04T17:26:09Z",
-    "temp_f": 77.4,
-    "dewpt_f": 51.2,
-    "heat_index_f": 76.7,
-    "humidity_pct": 40.0,
-    "wind_mph": 6.8,
+    "time_local": "2026-10-04 12:36:09",
+    "time_utc": "2026-10-04T17:36:09Z",
+    "temp_f": 77.9,
+    "dewpt_f": 51.0,
+    "heat_index_f": 77.2,
+    "humidity_pct": 39.0,
+    "wind_mph": 6.1,
     "gust_mph": 0.0,
-    "winddir_deg": 63,
-    "pressure_in": 30.18,
+    "winddir_deg": 54,
+    "pressure_in": 30.17,
     "precip_rate_in": 0.0,
     "precip_total_in": 0.0,
-    "uv": 5.0,
-    "solar_wm2": 541.8,
-    "solar": 541.8,
-    "solar_high_wm2": 541.8
+    "uv": 1.0,
+    "solar_wm2": 83.4,
+    "solar": 83.4,
+    "solar_high_wm2": 531.2
   },
-  "observations_1day_count": 149,
+  "observations_1day_count": 151,
   "observations_1day": [
     {
       "time_local": "2026-10-04 00:04:58",
@@ -2724,6 +2724,42 @@
       "solar_wm2": 541.8,
       "solar": 541.8,
       "solar_high_wm2": 541.8
+    },
+    {
+      "time_local": "2026-10-04 12:29:09",
+      "time_utc": "2026-10-04T17:29:09Z",
+      "temp_f": 77.5,
+      "dewpt_f": 50.5,
+      "heat_index_f": 76.8,
+      "humidity_pct": 38.8,
+      "wind_mph": 6.8,
+      "gust_mph": 8.5,
+      "winddir_deg": 74,
+      "pressure_in": 30.18,
+      "precip_rate_in": 0.0,
+      "precip_total_in": 0.0,
+      "uv": 5.0,
+      "solar_wm2": 541.8,
+      "solar": 541.8,
+      "solar_high_wm2": 541.8
+    },
+    {
+      "time_local": "2026-10-04 12:34:09",
+      "time_utc": "2026-10-04T17:34:09Z",
+      "temp_f": 77.8,
+      "dewpt_f": 49.8,
+      "heat_index_f": 77.1,
+      "humidity_pct": 37.4,
+      "wind_mph": 6.1,
+      "gust_mph": 7.4,
+      "winddir_deg": 54,
+      "pressure_in": 30.19,
+      "precip_rate_in": 0.0,
+      "precip_total_in": 0.0,
+      "uv": 4.0,
+      "solar_wm2": 531.2,
+      "solar": 531.2,
+      "solar_high_wm2": 531.2
     }
   ]
 }
