@@ -1,13 +1,13 @@
 {
   "schema": "msds-data.wu_health.v1",
-  "generated_at_utc": "2026-10-05T22:32:26Z",
+  "generated_at_utc": "2026-10-05T22:55:24Z",
   "ok": false,
   "critical_fail": true,
   "status": "stale",
   "reasons": [
-    "age 15.4h > 2.5h"
+    "age 15.8h > 2.5h"
   ],
-  "age_hours": 15.42,
+  "age_hours": 15.81,
   "station": "KILCASEY47",
   "temp_f": 56.1,
   "humidity_pct": 69.0,
