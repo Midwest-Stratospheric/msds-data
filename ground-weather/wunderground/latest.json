@@ -20,16 +20,16 @@
   },
   "collection": {
     "date": "2026-10-05",
-    "collected_at_local": "2026-10-05T21:53",
-    "collected_at_utc": "2026-10-06T02:53:32Z"
+    "collected_at_local": "2026-10-05T22:01",
+    "collected_at_utc": "2026-10-06T03:01:59Z"
   },
   "current": {
-    "time_local": "2026-10-05 21:53:00",
-    "time_utc": "2026-10-06T02:53:00Z",
-    "temp_f": 54.0,
+    "time_local": "2026-10-05 22:01:00",
+    "time_utc": "2026-10-06T03:01:00Z",
+    "temp_f": 53.6,
     "dewpt_f": 47.3,
-    "heat_index_f": 54.0,
-    "humidity_pct": 78.0,
+    "heat_index_f": 53.6,
+    "humidity_pct": 79.0,
     "wind_mph": 0.0,
     "gust_mph": 0.0,
     "winddir_deg": 107,
