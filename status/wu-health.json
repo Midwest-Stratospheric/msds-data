@@ -1,17 +1,15 @@
 {
   "schema": "msds-data.wu_health.v1",
-  "generated_at_utc": "2026-10-11T15:34:15Z",
-  "ok": false,
-  "critical_fail": true,
-  "status": "stale",
-  "reasons": [
-    "age 6.6h > 2.5h"
-  ],
-  "age_hours": 6.62,
+  "generated_at_utc": "2026-10-11T15:58:01Z",
+  "ok": true,
+  "critical_fail": false,
+  "status": "ok",
+  "reasons": [],
+  "age_hours": 0.22,
   "station": "KILCASEY47",
-  "temp_f": 62.2,
-  "humidity_pct": 82.0,
-  "solar_wm2": 0.0,
+  "temp_f": 68.4,
+  "humidity_pct": 70.0,
+  "solar_wm2": 64.8,
   "redispatch_workflow": "wu-ground-weather.yml",
   "host": "github-actions",
   "note": "Replaces Hostinger cron for WU PWS ingest health."
