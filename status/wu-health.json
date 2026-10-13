@@ -1,16 +1,16 @@
 {
   "schema": "msds-data.wu_health.v1",
-  "generated_at_utc": "2026-10-13T07:37:41Z",
+  "generated_at_utc": "2026-10-13T12:11:57Z",
   "ok": false,
   "critical_fail": true,
   "status": "stale",
   "reasons": [
-    "age 3.7h > 2.5h"
+    "age 4.4h > 2.5h"
   ],
-  "age_hours": 3.73,
+  "age_hours": 4.43,
   "station": "KILCASEY47",
-  "temp_f": 73.2,
-  "humidity_pct": 65.0,
+  "temp_f": 68.4,
+  "humidity_pct": 76.0,
   "solar_wm2": 0.0,
   "redispatch_workflow": "wu-ground-weather.yml",
   "host": "github-actions",
