@@ -20,16 +20,16 @@
   },
   "collection": {
     "date": "2026-10-14",
-    "collected_at_local": "2026-10-14T12:02",
-    "collected_at_utc": "2026-10-14T17:02:22Z"
+    "collected_at_local": "2026-10-14T12:15",
+    "collected_at_utc": "2026-10-14T17:15:35Z"
   },
   "current": {
-    "time_local": "2026-10-14 12:01:23",
-    "time_utc": "2026-10-14T17:01:23Z",
+    "time_local": "2026-10-14 12:15:23",
+    "time_utc": "2026-10-14T17:15:23Z",
     "temp_f": 73.2,
-    "dewpt_f": 69.8,
+    "dewpt_f": 69.5,
     "heat_index_f": 74.4,
-    "humidity_pct": 89.0,
+    "humidity_pct": 88.0,
     "wind_mph": 0.0,
     "gust_mph": 0.0,
     "winddir_deg": 306,
@@ -37,8 +37,8 @@
     "precip_rate_in": 0.0,
     "precip_total_in": 0.17,
     "uv": 1.0,
-    "solar_wm2": 85.1,
-    "solar": 85.1,
+    "solar_wm2": 122.2,
+    "solar": 122.2,
     "solar_high_wm2": 82.4
   },
   "observations_1day_count": 144,
