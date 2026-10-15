@@ -20,20 +20,20 @@
   },
   "collection": {
     "date": "2026-10-15",
-    "collected_at_local": "2026-10-15T04:46",
-    "collected_at_utc": "2026-10-15T09:46:56Z"
+    "collected_at_local": "2026-10-15T04:59",
+    "collected_at_utc": "2026-10-15T09:59:22Z"
   },
   "current": {
-    "time_local": "2026-10-15 04:46:08",
-    "time_utc": "2026-10-15T09:46:08Z",
-    "temp_f": 67.3,
-    "dewpt_f": 65.2,
-    "heat_index_f": 67.3,
+    "time_local": "2026-10-15 04:59:09",
+    "time_utc": "2026-10-15T09:59:09Z",
+    "temp_f": 67.5,
+    "dewpt_f": 65.4,
+    "heat_index_f": 67.5,
     "humidity_pct": 93.0,
     "wind_mph": 0.0,
     "gust_mph": 0.0,
     "winddir_deg": 45,
-    "pressure_in": 30.07,
+    "pressure_in": 30.08,
     "precip_rate_in": 0.0,
     "precip_total_in": 0.17,
     "uv": 0.0,
