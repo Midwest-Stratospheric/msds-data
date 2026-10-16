@@ -1,17 +1,17 @@
 {
   "schema": "msds-data.pipeline_health.v1",
-  "generated_at_utc": "2026-10-16T16:31:40Z",
+  "generated_at_utc": "2026-10-16T19:53:26Z",
   "ok": false,
   "wu_stale": true,
   "daily_stale": false,
   "uogw_casey_wu_stale": true,
-  "wu_age_hours": 9.29,
+  "wu_age_hours": 12.66,
   "temp_f": 59.0,
   "wu_collected_at_utc": "2026-10-16T07:14:08Z",
   "uogw_collected_at_utc": "2026-09-22T01:14:22Z",
   "open_meteo_daily": "2026-10-16.json",
   "reasons": [
-    "WU age 9.29h > 2.5h",
+    "WU age 12.66h > 2.5h",
     "UOGW casey-wu 2026-09-22T01:14:22Z != msds WU 2026-10-16T07:14:08Z"
   ],
   "host": "github-actions",
