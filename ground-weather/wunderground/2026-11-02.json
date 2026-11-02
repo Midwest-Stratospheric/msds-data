@@ -1,0 +1,83 @@
+{
+  "dataset": "Aerostratospheric Fixed Weather Station KILCASEY47",
+  "layer": "ground-weather",
+  "kind": "fixed_ground_station",
+  "station": {
+    "id": "KILCASEY47",
+    "network": "Weather Underground",
+    "name": "Aerostratospheric Fixed Weather Station KILCASEY47",
+    "neighborhood": "Casey",
+    "latitude": 39.296443,
+    "longitude": -87.985145,
+    "elevation_ft": 300.0,
+    "dashboard": "https://www.wunderground.com/dashboard/pws/KILCASEY47"
+  },
+  "source": {
+    "provider": "Weather Underground / The Weather Company",
+    "product": "PWS observations",
+    "station_id": "KILCASEY47",
+    "attribution": "Aerostratospheric Fixed Weather Station KILCASEY47"
+  },
+  "collection": {
+    "date": "2026-11-02",
+    "collected_at_local": "2026-11-02T00:13",
+    "collected_at_utc": "2026-11-02T06:13:43Z"
+  },
+  "current": {
+    "time_local": "2026-11-02 00:13:02",
+    "time_utc": "2026-11-02T06:13:02Z",
+    "temp_f": 54.7,
+    "dewpt_f": 52.7,
+    "heat_index_f": 54.7,
+    "humidity_pct": 93.0,
+    "wind_mph": 6.3,
+    "gust_mph": 0.0,
+    "winddir_deg": 229,
+    "pressure_in": 30.24,
+    "precip_rate_in": 0.0,
+    "precip_total_in": 0.0,
+    "uv": 0.0,
+    "solar_wm2": 0.0,
+    "solar": 0.0,
+    "solar_high_wm2": 0.0
+  },
+  "observations_1day_count": 2,
+  "observations_1day": [
+    {
+      "time_local": "2026-11-02 00:04:02",
+      "time_utc": "2026-11-02T06:04:02Z",
+      "temp_f": 54.9,
+      "dewpt_f": 52.6,
+      "heat_index_f": 54.9,
+      "humidity_pct": 92.0,
+      "wind_mph": 5.0,
+      "gust_mph": 7.2,
+      "winddir_deg": 273,
+      "pressure_in": 30.25,
+      "precip_rate_in": 0.0,
+      "precip_total_in": 0.0,
+      "uv": 0.0,
+      "solar_wm2": 0.0,
+      "solar": 0.0,
+      "solar_high_wm2": 0.0
+    },
+    {
+      "time_local": "2026-11-02 00:09:02",
+      "time_utc": "2026-11-02T06:09:02Z",
+      "temp_f": 54.8,
+      "dewpt_f": 52.6,
+      "heat_index_f": 54.8,
+      "humidity_pct": 92.4,
+      "wind_mph": 6.3,
+      "gust_mph": 7.2,
+      "winddir_deg": 229,
+      "pressure_in": 30.24,
+      "precip_rate_in": 0.0,
+      "precip_total_in": 0.0,
+      "uv": 0.0,
+      "solar_wm2": 0.0,
+      "solar": 0.0,
+      "solar_high_wm2": 0.0
+    }
+  ]
+}
