@@ -2,6 +2,12 @@
 
 Public atmospheric and stratospheric data releases from **Midwest Stratospheric Data Systems** high-altitude balloon flights, plus continuous local ground weather observations.
 
+## Operation Canis Major
+
+<img src="https://www.midwestsds.com/images/operation-canis-major-patch.png" alt="Operation Canis Major patch" width="120" align="right">
+
+This project is part of [Operation Canis Major](https://www.midwestsds.com/operation-canis-major.html), often called Project Canis: Aerostratospheric's mission objective to provide open stratospheric and atmospheric research and data, unrestricted, to the public. Learn more: https://www.midwestsds.com/operation-canis-major.html
+
 ## Purpose
 
 Rapid public release (<48 hours when possible) of high-quality near-space and mid-tropospheric observations to support:
