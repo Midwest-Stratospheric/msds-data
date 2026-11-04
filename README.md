@@ -1,6 +1,6 @@
-# MSDS Open Data
+# Aerostratospheric Open Data
 
-Public atmospheric and stratospheric data releases from **Midwest Stratospheric Data Systems** high-altitude balloon flights, plus continuous local ground weather observations.
+Public atmospheric and stratospheric data releases from **Aerostratospheric** high-altitude balloon flights, plus continuous local ground weather observations.
 
 ## Operation Canis Major
 
@@ -20,7 +20,7 @@ Rapid public release (<48 hours when possible) of high-quality near-space and mi
 ## Data Available
 
 ### Ground Weather Data (Casey, IL)
-Daily surface weather observations automatically archived as **Midwest Stratospheric Data Systems Ground Weather Data**.
+Daily surface weather observations automatically archived as **Aerostratospheric Ground Weather Data**.
 
 - Location: Casey, Illinois (home base)
 - See [`ground-weather/`](ground-weather/) for daily JSON files and documentation
@@ -65,10 +65,10 @@ If you work on soundings, surface stations, or classroom data projects and see a
 
 ## License & Attribution
 
-Data is intended for open use with attribution to Midwest Stratospheric Data Systems. Ground weather values should also attribute Open-Meteo. Specific licenses will be noted per release.
+Data is intended for open use with attribution to Aerostratospheric. Ground weather values should also attribute Open-Meteo. Specific licenses will be noted per release.
 
 ---
 
-**Midwest Stratospheric Data Systems**  
+**Aerostratospheric**  
 Casey, Illinois | NASA GLOBE registered  
 [midwestsds.com](https://www.midwestsds.com)
