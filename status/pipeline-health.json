@@ -1,18 +1,18 @@
 {
   "schema": "msds-data.pipeline_health.v1",
-  "generated_at_utc": "2026-11-06T14:56:33Z",
+  "generated_at_utc": "2026-11-06T20:49:23Z",
   "ok": false,
   "wu_stale": true,
   "daily_stale": false,
   "uogw_casey_wu_stale": true,
-  "wu_age_hours": 3.97,
-  "temp_f": 48.9,
-  "wu_collected_at_utc": "2026-11-06T10:58:23Z",
+  "wu_age_hours": 2.79,
+  "temp_f": 49.6,
+  "wu_collected_at_utc": "2026-11-06T18:02:15Z",
   "uogw_collected_at_utc": "2026-10-23T01:33:28Z",
   "open_meteo_daily": "2026-11-06.json",
   "reasons": [
-    "WU age 3.97h > 2.5h",
-    "UOGW casey-wu 2026-10-23T01:33:28Z != msds WU 2026-11-06T10:58:23Z"
+    "WU age 2.79h > 2.5h",
+    "UOGW casey-wu 2026-10-23T01:33:28Z != msds WU 2026-11-06T18:02:15Z"
   ],
   "host": "github-actions",
   "note": "Replaces Hostinger cron and Grok pipeline health bot."
