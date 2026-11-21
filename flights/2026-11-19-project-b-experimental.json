@@ -1,0 +1,59 @@
+{
+  "dataset": "Aerostratospheric flight product",
+  "layer": "flight",
+  "status": "published",
+  "license": "CC BY 4.0",
+  "attribution": "Aerostratospheric",
+  "id": "2026-11-19-project-b-experimental",
+  "title": "Project B. Experimental",
+  "platform": "Project B. Experimental payload",
+  "vehicle": "Latex weather balloon, 83 cu ft helium",
+  "date": "2026-11-19",
+  "times_utc": {
+    "launch": "2026-11-19T22:16:24Z",
+    "burst": "2026-11-20T00:11:24Z",
+    "landing": "2026-11-20T00:34:42Z",
+    "duration_min": 138
+  },
+  "launch": {
+    "name": "Round Rock, Texas",
+    "site": "Old Settlers Park RC field",
+    "latitude": 30.53215,
+    "longitude": -97.62892
+  },
+  "landing": {
+    "name": "west of Bryan, Texas",
+    "latitude": 30.67436,
+    "longitude": -96.58609,
+    "range_mi": 62.8,
+    "bearing": "E",
+    "bearing_deg": 81,
+    "source": "SPOT Trace STOP fix (payload)"
+  },
+  "profile": {
+    "ascent_min": 115,
+    "descent_min": 23,
+    "burst_ft": 98717,
+    "burst_km": 30.1,
+    "climb_rate_ft_min": 853,
+    "descent_rate_ft_min": 4216,
+    "ground_speed_mph": 27.2,
+    "min_temp_c": -39.2
+  },
+  "flight_computer": {
+    "model": "High Altitude Science Eagle",
+    "firmware": "1.6",
+    "sensors": "S2 temperature / pressure",
+    "interval_s": 6,
+    "rows_kept": 1570,
+    "rows_dropped": 4,
+    "pressure_floor_pa": 17780,
+    "note": "Pressure sensor bottoms out near 17,780 Pa; GPS altitude is the reference. Landing time is the last logged row (150 m GPS, final descent).",
+    "data_folder": "https://github.com/Midwest-Stratospheric/xliveflights-data/tree/main/2026-11-19-project-bloom-experimental/eagle-flight-computer",
+    "raw_log": "https://github.com/Midwest-Stratospheric/xliveflights-data/blob/main/2026-11-19-project-bloom-experimental/eagle-flight-computer/pbe-eagle-flight-computer-2026-11-19.txt",
+    "clean_csv": "https://github.com/Midwest-Stratospheric/xliveflights-data/blob/main/2026-11-19-project-bloom-experimental/eagle-flight-computer/pbe-eagle-flight-computer-2026-11-19-clean.csv"
+  },
+  "flight_page": "https://www.midwestsds.com/project-bloom-experimental.html",
+  "notes": "Project B. Experimental. Launch 2216Z from Round Rock, Texas; peak GPS altitude 98,717 ft (30,089 m) at 0011Z from the Eagle flight computer; last logged row 0034Z; payload landed west of Bryan, Texas. Lowest Eagle sensor temperature -39.2 C.",
+  "published_at": "2026-11-21T20:20:00Z"
+}
